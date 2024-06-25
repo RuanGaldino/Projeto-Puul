@@ -1,4 +1,3 @@
-
 import br.com.aulascreenmatch.modelos.Filme;
 import br.com.aulascreenmatch.modelos.Seríe;
 import br.com.aulascreenmatch.modelos.Titulo;
@@ -8,22 +7,24 @@ import java.util.Collections;
 
 public class PrincipalComListas {
     public static void main(String[] args) {
-
         Filme filmeDoRuan = new Filme("Os suspeitos", 2013);
         Seríe outraSerie = new Seríe("The Walking dead", 2010);
 
         ArrayList<Titulo> lista = new ArrayList<>();
         lista.add(filmeDoRuan);
         lista.add(outraSerie);
+
         for (Titulo item : lista) {
+            System.out.println("Nome do título: " + item.getNome());
+            if (item.getNome() == null) {
+                throw new IllegalStateException("Título com nome nulo encontrado");
+            }
             System.out.println(item);
             System.out.println(item.getNome());
             if (item instanceof Filme filme && filme.getClassificacao() > 2) {
-                System.out.println("Classificação: " + ((Filme) item).getClassificacao());
-
+                System.out.println("Classificação: " + filme.getClassificacao());
             }
         }
-
 
         Collections.sort(lista);
         ArrayList<String> buscaPorArtista = new ArrayList<>();
@@ -35,11 +36,8 @@ public class PrincipalComListas {
         Collections.sort(buscaPorArtista);
         System.out.println("Depois da ordenação");
         System.out.println(buscaPorArtista);
-        System.out.println("Lista de titulos ordenados");
+        System.out.println("Lista de títulos ordenados");
         Collections.sort(lista);
         System.out.println(lista);
-
-
-
     }
 }

@@ -3,7 +3,6 @@ package br.com.aulascreenmatch.modelos;
 import br.com.aulascreenmatch.calculadoraDeTempo.Classificavel;
 
 public class Episodio implements Classificavel {
-
     private String serie;
     private int numero;
     private Seríe seríe;
@@ -48,6 +47,5 @@ public class Episodio implements Classificavel {
         } else {
             return 2;
         }
-
     }
 }

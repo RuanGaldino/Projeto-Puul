@@ -1,26 +1,15 @@
 package br.com.aulascreenmatch.modelos;
 
-public class Filme extends Titulo {
-private boolean retro;
-private int minutosDoFilme;
-private int anoDeLancamento;
-private double classificacao;
+import br.com.aulascreenmatch.calculadoraDeTempo.Classificavel;
 
-    public double getClassificacao() {
-        return classificacao;
-    }
-
-    public void setClassificacao(double classificacao) {
-        this.classificacao = classificacao;
-    }
-
-    private String nome;
+public class Filme extends Titulo implements Classificavel {
+    private boolean retro;
+    private int minutosDoFilme;
+    private double classificacao;
 
     public Filme(String nome, int anoDeLancamento) {
-       super(nome, anoDeLancamento);
+        super(nome, anoDeLancamento);
     }
-
-
 
     public boolean isRetro() {
         return retro;
@@ -38,24 +27,17 @@ private double classificacao;
         this.minutosDoFilme = minutosDoFilme;
     }
 
-    @Override
-    public String getNome() {
-        return nome;
+    public double getNota() {
+        return classificacao;
+    }
+
+    public void setNota(double classificacao) {
+        this.classificacao = classificacao;
     }
 
     @Override
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    @Override
-    public int getAnoDeLancamento() {
-        return anoDeLancamento;
-    }
-
-    @Override
-    public void setAnoDeLancamento(int anoDeLancamento) {
-        this.anoDeLancamento = anoDeLancamento;
+    public int getClassificacao() {
+        return (int) Math.round(classificacao);
     }
 
     @Override

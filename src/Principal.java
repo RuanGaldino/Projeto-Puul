@@ -12,76 +12,53 @@ public class Principal {
 
   minhaSerie.setNome("The Walking dead");
   minhaSerie.setQuantidadeDeTemporadas(11);
-  minhaSerie.setAnoDeLancamento(2010);
-  //minhaSerie.somaDasAvaliacoes = 9.5;
   minhaSerie.setIncluidoNoPlano(true);
   minhaSerie.setDuracaoEmMinutos(500);
 
-
-        System.out.println(minhaSerie.getNome());
-        System.out.println(minhaSerie.getQuantidadeDeTemporadas());
-        System.out.println(minhaSerie.getAnoDeLancamento());
-        System.out.println(minhaSerie.getTotalDeAvaliacoes());
-
+  System.out.println(minhaSerie.getNome());
+  System.out.println(minhaSerie.getQuantidadeDeTemporadas());
+  System.out.println(minhaSerie.getAnoDeLancamento());
+  System.out.println(minhaSerie.getTotalDeAvaliacoes());
 
   minhaSerie.exibiFichaTecnica();
-  minhaSerie.avalia(8);
+  minhaSerie.avalia(9);
   minhaSerie.avalia(5);
-  minhaSerie.avalia(10);
+  minhaSerie.avalia(7);
 
+  System.out.println("Média das avaliações: " + minhaSerie.pegaMedia());
 
-  //System.out.println(minhaSerie.somaDasAvaliacoes);
-  System.out.println("Total de avaliações" +minhaSerie.getTotalDeAvaliacoes());
-  //minhaSerie.somaDasAvaliacoes =10;*/
-
-  Filme meuFilme = new Filme("Poderoso Chefão",1978);
-  meuFilme.setAnoDeLancamento(2022);
-  meuFilme.exibiFichaTecnica();
-  meuFilme.setRetro(true);
-  meuFilme.setMinutosDoFilme(120);
-  meuFilme.setAnoDeLancamento(1978);
-  meuFilme.setDuracaoEmMinutos(180);
-
-  System.out.println("Duração para acabar o filme " + meuFilme.getMinutosDoFilme());
-  System.out.println("Nome do filme: " + meuFilme.getNome());
-  System.out.println();
-
-
-  Seríe outraSerie =new Seríe("The Walking dead", 2010);
-  outraSerie.setQuantidadeDeTemporadas(11);
-  //minhaSerie.somaDasAvaliacoes = 9.5;
-  outraSerie.setIncluidoNoPlano(true);
-  outraSerie.setDuracaoEmMinutos(250);
+  Filme meuFilme = new Filme("Os suspeitos", 2013);
+  meuFilme.setDuracaoEmMinutos(120);
+  meuFilme.setIncluidoNoPlano(true);
+  meuFilme.setNota(8.1);
 
   CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
-  calculadora.inclui(meuFilme);
-  calculadora.inclui(outraSerie);
   calculadora.inclui(minhaSerie);
+  calculadora.inclui(meuFilme);
 
   System.out.println(calculadora.getTempoTotal());
 
   FiltrodeRecomendacao filtro = new FiltrodeRecomendacao();
-
+  filtro.filtra(meuFilme);
 
   Episodio episodio = new Episodio();
   episodio.setNumero(1);
-  episodio.setSerie("The walking dead");
-  episodio.setTotalVisualizacoes(500);
+  episodio.setSerie("The Walking Dead");
+  episodio.setTotalVisualizacoes(300);
+
   filtro.filtra(episodio);
 
-  var filmeDoRuan = new Filme("Os Suspeitos",2013);
-  filmeDoRuan.setDuracaoEmMinutos(250);
-  filmeDoRuan.setNome("Os Suspeitos");
-  filmeDoRuan.setAnoDeLancamento(2013);
-  filmeDoRuan.avalia(10);
+  var filmeDoPaulo = new Filme("Dogville", 2003);
+  filmeDoPaulo.setDuracaoEmMinutos(200);
+  filmeDoPaulo.setIncluidoNoPlano(true);
+  filmeDoPaulo.setNota(10);
 
-  ArrayList<Filme>listaDeFilmes = new ArrayList<>();
-  listaDeFilmes.add(filmeDoRuan);
-  System.out.println("Tamanho da lista " + listaDeFilmes.size() );
-  System.out.println("Filme: " + listaDeFilmes.get(0).getNome());
-  System.out.println("listaDeFilmes");
-
-
-  }
+  ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+  listaDeFilmes.add(filmeDoPaulo);
+  listaDeFilmes.add(meuFilme);
+  System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+  System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
+  System.out.println(listaDeFilmes);
+  System.out.println("toString do filme: " + listaDeFilmes.get(0).toString());
  }
-
+}
